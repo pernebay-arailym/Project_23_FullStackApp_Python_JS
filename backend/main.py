@@ -53,6 +53,10 @@ def update_contact(user_id)
     if not contact:
         return jsonify({"message": "User not found"}), 404
 
+    data = request.json
+    contact.first_name = data.get("firstName", contact.first_name)
+    contact.last_name = data.get("lastName", contact.last_name)
+    contact.email = data.get("email", contact.email)
 
 if __name__ == "__main__":
     with app.app_context():
