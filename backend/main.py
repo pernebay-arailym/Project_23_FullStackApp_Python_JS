@@ -23,7 +23,7 @@ from models import Contact
 def get_contacts():
     contacts = Contact.query.all() #gives a list of all contacts
     json_contacts = list(map(lambda x: x.to_json(), contacts)) #map takes all elements from the list 
-    return jsonify({"contacts": json_contacts}) #contacts in python dict will be associated with json, we convert into JSON using jsonify fucntion
+    return jsonify({"contacts": json_contacts}), 200 #contacts in python dict will be associated with json, we convert into JSON using jsonify fucntion
 
 @app.route("/create_contact", methods=["POST"])
 def create_contact():
@@ -36,6 +36,8 @@ def create_contact():
             jsonify({"message": "You must include a forst name, last name and email"}), 
             400,
         )
+    
+    new_contact = Contact(first_name=first_name, last_name=last_name, email=email)
 
 if __name__ == "__main__":
     with app.app_context():
