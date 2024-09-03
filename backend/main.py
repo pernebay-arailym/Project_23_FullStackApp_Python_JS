@@ -46,6 +46,13 @@ def create_contact():
     
     return jsonify({"message": "User created!"}), 201
 
+@app.route("/update_contact/<int:user_id>") #
+def update_contact(user_id)
+    contact = Contact.query.get(user_id)
+
+    i
+
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all() #speed up the db
