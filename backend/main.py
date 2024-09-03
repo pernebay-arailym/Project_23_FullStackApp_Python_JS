@@ -25,6 +25,9 @@ def get_contacts():
     json_contacts = list(map(lambda x: x.to_json(), contacts)) #map takes all elements from the list 
     return jsonify({"contacts": json_contacts}) #contacts in python dict will be associated with json, we convert into JSON using jsonify fucntion
 
+@app.route("/create_contact", methods=["POST"])
+
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all() #speed up the db
