@@ -50,7 +50,8 @@ def create_contact():
 def update_contact(user_id)
     contact = Contact.query.get(user_id)
 
-    i
+    if not contact:
+        return jsonify({"message": "User not found"}), 404
 
 
 if __name__ == "__main__":
