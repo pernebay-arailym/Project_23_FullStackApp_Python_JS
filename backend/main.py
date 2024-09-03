@@ -22,7 +22,8 @@ from models import Contact
 @app.route("/contacts", methods=["GET"])
 def get_contacts():
     contacts = Contact.query.all() #gives a list of all contacts
-
+    json_contacts = list(map(lambda x: x.to_json(), contacts)) #map takes all elements from the list 
+    return jsonify({"contacts": json_contacts}) #contacts in python dict will be associated with json, we convert into JSON using jsonify fucntion
 
 if __name__ == "__main__":
     with app.app_context():
