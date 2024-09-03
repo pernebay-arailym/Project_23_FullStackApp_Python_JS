@@ -10,4 +10,7 @@ CORS(app)
 #Initialize database things
 #Specifying the location of the local SQL where we store our machine
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///mydatabase.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
+#create an instance of the database that gives us acces to the database we specified before
+db = SQLAlchemy(app)
