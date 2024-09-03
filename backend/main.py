@@ -38,6 +38,11 @@ def create_contact():
         )
     
     new_contact = Contact(first_name=first_name, last_name=last_name, email=email)
+    try:
+        db.session.add(new_contact)
+        db.session.commit()
+    except Exception as e:
+        return jsonify({"message": str(e)}), 400
 
 if __name__ == "__main__":
     with app.app_context():
