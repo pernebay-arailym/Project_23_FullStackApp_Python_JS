@@ -39,7 +39,7 @@ const ContactForm = ({}) => {
             </div>
             <div>
                 <label htmlFor="lastName">Last Name:</label>
-                <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                <input type="text" id="lastName" value={lastname} onChange={(e) => setLastName(e.target.value)} />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
