@@ -5,7 +5,7 @@ const ContactForm = ({}) => {
     const [lastname, setLastName] = useState("");
     const [email, setEmail] = useState("");
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
 
         const data = {
@@ -20,6 +20,13 @@ const ContactForm = ({}) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data) 
+        }
+        const response = await fetch(url, options)
+        if (response .status !== 201 && response.status !== 200) {
+            const message = await response.json()
+            alert(data.message)
+        } else {
+            // successful 
         }
 
     }
