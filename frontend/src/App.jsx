@@ -20,8 +20,8 @@ function App() {
 
   return (
     <>
-    <Contactlist contacts={contacts}/>
-    <ContactForm/>
+      <Contactlist contacts={contacts} />
+      <ContactForm/>
     </>
   );
 }

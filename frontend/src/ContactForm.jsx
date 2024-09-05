@@ -1,8 +1,8 @@
-import {useState} from "react"
+import {useState} from "react";
 
-const ContactForm = ({}) => {
+const ContactForm = ({ }) => {
     const [firstName, setFirstName] = useState("");
-    const [lastname, setLastName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
 
     const onSubmit = async (e) => {
@@ -19,11 +19,11 @@ const ContactForm = ({}) => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(data) 
+            body: JSON.stringify(data)
         }
         const response = await fetch(url, options)
         if (response .status !== 201 && response.status !== 200) {
-            const message = await response.json()
+            const data = await response.json()
             alert(data.message)
         } else {
             // successful 
@@ -39,7 +39,7 @@ const ContactForm = ({}) => {
             </div>
             <div>
                 <label htmlFor="lastName">Last Name:</label>
-                <input type="text" id="lastName" value={lastname} onChange={(e) => setLastName(e.target.value)} />
+                <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
