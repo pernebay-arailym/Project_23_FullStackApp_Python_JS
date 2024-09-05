@@ -5,6 +5,8 @@ const ContactForm = ({ existingContact ={}, updateCallback }) => {
     const [lastName, setLastName] = useState(existingContact.lastName || "");
     const [email, setEmail] = useState(existingContact.email || "");
 
+    const updating = Object.entries(existingContact).lenght !== 0
+
     const onSubmit = async (e) => {
         e.preventDefault()
 
@@ -13,7 +15,7 @@ const ContactForm = ({ existingContact ={}, updateCallback }) => {
             lastName,
             email
         }
-        const url = "http://127.0.0.1:5000/create_contact"
+        const url = "http://127.0.0.1:5000/" + (updating ? `update_contact/${existingContact.id}` : "create_contact")
         const options = {
             method: "POST",
             headers: {
