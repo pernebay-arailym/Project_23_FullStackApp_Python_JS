@@ -5,6 +5,8 @@ import ContactForm from "./ContactForm";
 
 function App() {
   const [contacts, setContacts] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false) //
+
 
   useEffect(() => {
     fetchContacts()
@@ -16,6 +18,14 @@ function App() {
     setContacts(data.contacts);
     console.log(data.contacts);
   };
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
+
+  const openCreateModal = () => {
+    if (!isModalOpen) setIsModalOpen(true)
+  }
 
 
   return (
