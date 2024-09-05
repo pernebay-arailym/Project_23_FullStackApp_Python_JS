@@ -30,8 +30,15 @@ function App() {
 
   return (
     <>
-      <Contactlist contacts={contacts} />
-      <ContactForm/>
+      <Contactlist contacts={contacts} /> 
+      <button onClick={openCreateModal}>Create New Contact</button>
+      { isModalOpen && <div className="modal">
+      <div classNAme="modal-content">
+        <span className="close" onClick={closeModal}>&times;</span>
+        <ContactForm/>
+      </div>
+      </div>
+      }
     </>
   );
 }
